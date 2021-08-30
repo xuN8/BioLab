@@ -4,14 +4,51 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title></title>
+    <!--<script src="p5.js"></script>-->
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
+    <div id="topbar">
+      <button onclick="randomVirus()">random</button>
+      <button onclick="destroyVirus()">destroy</button>
+      <button onclick="duplicateVirus()">duplicate</button>
+      <button onclick="mergeViruses()">merge</button> 
+      <button onclick="splitVirus()">split</button>         
+      <button onclick="info()">info</button>
+      <button onclick="injectVirus()">inject</button>      
+      <button onClick="extract()">extract</button>
+      <button onClick="cure()">cure</button>
+      <!--
+      <button onClick="save()">save</button>
+      <button onClick="load()">load</button>
+      -->
+    </div>
+    <div class="row">
+      <div class="column left">  
+        <form id="hotbar">
+        </form>
+      </div>
+      <div class="column right">
+        <textarea id="console" rows="10" cols="10">Console</textarea>
+      </div>
+    </div>
+
+    
+    
+    
+    <!--
     <h1></h1>
 		<p></p>
 		<footer></footer>
 
-    <script src="mod-support.js"></script>  
-    <script src="main.js"></script>     
+    <script src="mod-support.js"></script>
+    <script src="sketch.js"></script>
+    --> 
+    <script src="scripts/console-embed.js"></script>  
+    <script src="scripts/declarations.js"></script>  
+    <script src="scripts/traits.js"></script> 
+    <script src="scripts/classes.js"></script>
+    <script src="scripts/functions.js"></script>
+    <script src="scripts/main.js"></script>
   </body>
 </html>
