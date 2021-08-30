@@ -8,28 +8,51 @@
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <div id="topbar">
-      <button onclick="randomVirus()">random</button>
-      <button onclick="destroyVirus()">destroy</button>
-      <button onclick="duplicateVirus()">duplicate</button>
-      <button onclick="mergeViruses()">merge</button> 
-      <button onclick="splitVirus()">split</button>         
-      <button onclick="info()">info</button>
-      <button onclick="injectVirus()">inject</button>      
-      <button onClick="extract()">extract</button>
-      <button onClick="cure()">cure</button>
-      <!--
-      <button onClick="save()">save</button>
-      <button onClick="load()">load</button>
-      -->
+    <div>
+      <label>Virus</label>
+
+      <button title="Get a new virus with 4 random traits" onclick="randomVirus()">random</button>
+
+      <button title="Make a copy of each selected virus" onclick="duplicateVirus()">duplicate</button>
+
+      <button title="Combine traits from selected viruses to make a new virus" onclick="mergeViruses()">merge</button> 
+
+      <button title="Separate each selected virus into pure, single-trait viruses" onclick="splitVirus()">split</button>  
+
+      <button title="Get information from all selected viruses" onclick="info()">info</button>
+
+      <button title="Delete all selected viruses" onclick="destroyVirus()">destroy</button>
+
+      <button title="Destroy all viruses in the inventory" onclick="clearInventory()">clear</button>    
     </div>
+      
+    <div>
+      <label>Host</label>
+
+      <button title="Inject all selected viruses into the host" onclick="injectVirus()">inject</button>   
+
+      <button title="Get virus from a blood sample" onclick="extract()">extract</button>
+
+      <button title="Clear the host's symptom history" onclick="cure()">cure</button>
+    </div>
+
+    <div>
+      <label>Data</label>
+      <button title="Save inventory data" onclick="save()">save</button>
+
+      <input title="Load inventory data" type="file" id="load"> 
+    </div>
+
+    <br>
     <div class="row">
-      <div class="column left">  
-        <form id="hotbar">
+      <div class="column left"> 
+        <label>Inventory</label><br> 
+        <form id="inventory">          
         </form>
       </div>
       <div class="column right">
-        <textarea id="console" rows="10" cols="10">Console</textarea>
+        <label>Console</label><br>
+        <textarea id="console" rows="10" cols="10"></textarea>
       </div>
     </div>
 
@@ -49,6 +72,7 @@
     <script src="scripts/traits.js"></script> 
     <script src="scripts/classes.js"></script>
     <script src="scripts/functions.js"></script>
+    <script src="scripts/data.js"></script>
     <script src="scripts/main.js"></script>
   </body>
 </html>

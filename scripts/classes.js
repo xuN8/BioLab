@@ -11,6 +11,7 @@ function Virus(name, traits) {
   const checkbox = document.createElement("INPUT");
   checkbox.type = "checkbox";
   checkbox.id = name;
+  checkbox.title = traits;
   hotbar.appendChild(checkbox);
   this.checkbox = checkbox;
 

@@ -1,6 +1,6 @@
 // Global variables are defined here
 
-const hotbar = document.getElementById("hotbar");
+const hotbar = document.getElementById("inventory");
 
 var extractorStamp = 0;
 var splitterStamp = 0;

@@ -16,6 +16,16 @@ function deselectAll() {
   });
 }
 
+function clearInventory() {
+  console.log("Clear inventory");
+
+  for (var i=0; i<viruses.length; i++) {
+    viruses[i].destroy();
+  }
+
+  viruses = [];
+}
+
 // High Level Functions
 function randomVirus() {
   console.log("Random");
@@ -32,7 +42,6 @@ function randomVirus() {
   };  
 
   new Virus(name, randTraits);
-  deselectAll();
 }
 
 function destroyVirus() {
@@ -120,6 +129,7 @@ function injectVirus() {
   console.log("Inject");
 
   forAllSelectedDo(function(virus) {
+    virus.destroy();
     host.inject(virus);
   });
   
