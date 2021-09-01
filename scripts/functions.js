@@ -1,18 +1,18 @@
 // Low Level Functions
 function forAllSelectedDo(func) {
-  // Look through every virus' checkbox to see if it is checked
+  // Look through every virus' checkbox to see if it is selected
   for (var i=0; i<viruses.length; i++) {
     const checkbox = viruses[i].checkbox;
-    if (checkbox && checkbox.checked) {
+    if (checkbox && checkbox.selected) {
       func(viruses[i], i);
     }
   }
 }
 
 function deselectAll() {
-  // Uncheck all checked items
+  // Uncheck all selected items
   forAllSelectedDo(function(virus) {
-    virus.checkbox.checked = false;
+    virus.checkbox.selected = false;
   });
 }
 
@@ -51,10 +51,10 @@ function destroyVirus() {
   // This prevents array items from being undefined
   var newArray = [];
 
-  // Look through every virus' checkbox to see if it is checked
+  // Look through every virus' checkbox to see if it is selected
   for (var i=0; i<viruses.length; i++) {
     const checkbox = viruses[i].checkbox;
-    if (checkbox && checkbox.checked) {
+    if (checkbox && checkbox.selected) {
       viruses[i].destroy();
     } else {
       newArray.push(viruses[i]);
@@ -81,10 +81,10 @@ function mergeViruses() {
   const name = "M-"+mergerStamp.toString();
   var mergedTraits = [];
 
-  // Look through every virus' checkbox to see if it is checked
+  // Look through every virus' checkbox to see if it is selected
   for (var i=0; i<viruses.length; i++) { 
     const checkbox = viruses[i].checkbox;
-    if (checkbox && checkbox.checked) {
+    if (checkbox && checkbox.selected) {
       const traits = viruses[i].traits
       if (traits) {
         mergedTraits = mergedTraits.concat([...traits]);

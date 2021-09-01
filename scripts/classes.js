@@ -7,6 +7,13 @@ function Virus(name, traits) {
   // Add it to the viruses dictionary
   viruses.push(this);
 
+  const option = document.createElement("OPTION");
+  option.id = name;
+  option.title = traits;
+  option.innerHTML = name;
+  hotbar.appendChild(option);
+  this.checkbox = option;
+  /*
   // Create a checkbox for the virus
   const checkbox = document.createElement("INPUT");
   checkbox.type = "checkbox";
@@ -23,6 +30,7 @@ function Virus(name, traits) {
 
   // Add a line break
   const lnBreak = hotbar.appendChild(document.createElement("BR"));
+  */
 
   this.report = function() {
     console.log("Name: " + this.name);
@@ -32,9 +40,9 @@ function Virus(name, traits) {
 
   this.destroy = function() {
     // Remove all DOM elements related to this virus
-    checkbox.remove();
-    label.remove();
-    lnBreak.remove();
+    this.checkbox.remove();
+    //label.remove();
+    //lnBreak.remove();
   };
 }
 

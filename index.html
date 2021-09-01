@@ -23,7 +23,9 @@
 
       <button title="Delete all selected viruses" onclick="destroyVirus()">destroy</button>
 
-      <button title="Destroy all viruses in the inventory" onclick="clearInventory()">clear</button>    
+      <!--
+      <button title="Destroy all viruses in the inventory" onclick="clearInventory()">clear</button>  
+      -->  
     </div>
       
     <div>
@@ -47,12 +49,16 @@
     <div class="row">
       <div class="column left"> 
         <label>Inventory</label><br> 
+        <select id="inventory" multiple>
+        </select>
+        <!--
         <form id="inventory">          
         </form>
+        -->
       </div>
       <div class="column right">
         <label>Console</label><br>
-        <textarea id="console" rows="10" cols="10"></textarea>
+        <textarea id="console" readonly></textarea>
       </div>
     </div>
 

@@ -4,8 +4,14 @@ body {
   color: white;
 }
 
+#inventory {
+  width: 200px;
+  height: 200px;
+}
+
 textarea {
-  width: 100%;
+  width: 200px;
+  height: 200px;
 }
 
 .column { 
