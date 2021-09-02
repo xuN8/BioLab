@@ -1,9 +1,9 @@
 // Low Level Functions
 function forAllSelectedDo(func) {
-  // Look through every virus' checkbox to see if it is selected
+  // Look through every virus' option to see if it is selected
   for (var i=0; i<viruses.length; i++) {
-    const checkbox = viruses[i].checkbox;
-    if (checkbox && checkbox.selected) {
+    const option = viruses[i].option;
+    if (option && option.selected) {
       func(viruses[i], i);
     }
   }
@@ -12,7 +12,7 @@ function forAllSelectedDo(func) {
 function deselectAll() {
   // Uncheck all selected items
   forAllSelectedDo(function(virus) {
-    virus.checkbox.selected = false;
+    virus.option.selected = false;
   });
 }
 
@@ -37,8 +37,11 @@ function randomVirus() {
   // Take four traits at random to construct a new virus
   var randTraits = [];
   for (var i=0; i<4; i++) {
-    const trait = traits[Math.floor(Math.random()*traits.length)];
-    randTraits.push(trait);
+    const traitNames = Object.keys(traits);
+    const randTraitName = traitNames[Math.floor(Math.random() * traitNames.length)]
+
+    //const trait = traits[Math.floor(Math.random()*traits.length)];
+    randTraits.push(randTraitName);
   };  
 
   new Virus(name, randTraits);
@@ -51,10 +54,10 @@ function destroyVirus() {
   // This prevents array items from being undefined
   var newArray = [];
 
-  // Look through every virus' checkbox to see if it is selected
+  // Look through every virus' option to see if it is selected
   for (var i=0; i<viruses.length; i++) {
-    const checkbox = viruses[i].checkbox;
-    if (checkbox && checkbox.selected) {
+    const option = viruses[i].option;
+    if (option && option.selected) {
       viruses[i].destroy();
     } else {
       newArray.push(viruses[i]);
@@ -81,10 +84,10 @@ function mergeViruses() {
   const name = "M-"+mergerStamp.toString();
   var mergedTraits = [];
 
-  // Look through every virus' checkbox to see if it is selected
+  // Look through every virus' option to see if it is selected
   for (var i=0; i<viruses.length; i++) { 
-    const checkbox = viruses[i].checkbox;
-    if (checkbox && checkbox.selected) {
+    const option = viruses[i].option;
+    if (option && option.selected) {
       const traits = viruses[i].traits
       if (traits) {
         mergedTraits = mergedTraits.concat([...traits]);
@@ -149,3 +152,50 @@ function extract() {
 function cure() {
   host.cure();
 }
+
+// Save/Load Data
+function saveData() {
+  console.log("Save");
+
+  const fileName = "biolab-data.json"
+  
+  // This variable stores all the data
+  let data = JSON.stringify({"inventory":viruses});
+  console.log(data);
+
+  // Convert the text to BLOB
+  const textToBLOB = new Blob([data], { type: 'text/plain' });
+  const sFileName = fileName;    // The file to save the data
+
+  let newLink = document.createElement("a");
+  newLink.download = sFileName;
+
+  if (window.webkitURL != null) {
+      newLink.href = window.webkitURL.createObjectURL(textToBLOB);
+  }
+  else {
+      newLink.href = window.URL.createObjectURL(textToBLOB);
+      newLink.style.display = "none";
+      document.body.appendChild(newLink);
+  }
+
+  newLink.click(); 
+}
+
+function loadData() {
+  clearInventory();
+
+  const file = this.files[0]
+  fileName = file.name;  
+  var fr=new FileReader();
+  fr.onload=function(){
+    const inventory = JSON.parse(fr.result).inventory;
+    inventory.forEach(function(value) {
+      new Virus(value.name, value.traits);
+    })
+  }
+                  
+  fr.readAsText(this.files[0]);       
+}
+
+document.getElementById("load").addEventListener("change", loadData, false);

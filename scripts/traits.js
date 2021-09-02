@@ -1,5 +1,6 @@
 // List of all possible symptoms that the host can experience
-const traits = [
+
+/*const traits = [
   "warts", 
   "screams", 
   "hiccups", 
@@ -9,4 +10,4 @@ const traits = [
   "babbling",
   "coughing",
   "sneezing"
-  ];
+  ];*/

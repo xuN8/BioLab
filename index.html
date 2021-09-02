@@ -4,81 +4,66 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title></title>
-    <!--<script src="p5.js"></script>-->
+    <script src="p5.js"></script>
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <div>
-      <label>Virus</label>
+    <!-- Hide the UI for now -->
+    <div id="interface">
+      <div>
+        <label>Virus</label>
 
-      <button title="Get a new virus with 4 random traits" onclick="randomVirus()">random</button>
+        <button title="Get a new virus with 4 random traits" onclick="randomVirus()">random</button>
 
-      <button title="Make a copy of each selected virus" onclick="duplicateVirus()">duplicate</button>
+        <button title="Make a copy of each selected virus" onclick="duplicateVirus()">duplicate</button>
 
-      <button title="Combine traits from selected viruses to make a new virus" onclick="mergeViruses()">merge</button> 
+        <button title="Combine traits from selected viruses to make a new virus" onclick="mergeViruses()">merge</button> 
 
-      <button title="Separate each selected virus into pure, single-trait viruses" onclick="splitVirus()">split</button>  
+        <button title="Separate each selected virus into pure, single-trait viruses" onclick="splitVirus()">split</button>  
 
-      <button title="Get information from all selected viruses" onclick="info()">info</button>
+        <button title="Get information from all selected viruses" onclick="info()">info</button>
 
-      <button title="Delete all selected viruses" onclick="destroyVirus()">destroy</button>
-
-      <!--
-      <button title="Destroy all viruses in the inventory" onclick="clearInventory()">clear</button>  
-      -->  
-    </div>
-      
-    <div>
-      <label>Host</label>
-
-      <button title="Inject all selected viruses into the host" onclick="injectVirus()">inject</button>   
-
-      <button title="Get virus from a blood sample" onclick="extract()">extract</button>
-
-      <button title="Clear the host's symptom history" onclick="cure()">cure</button>
-    </div>
-
-    <div>
-      <label>Data</label>
-      <button title="Save inventory data" onclick="save()">save</button>
-
-      <input title="Load inventory data" type="file" id="load"> 
-    </div>
-
-    <br>
-    <div class="row">
-      <div class="column left"> 
-        <label>Inventory</label><br> 
-        <select id="inventory" multiple>
-        </select>
-        <!--
-        <form id="inventory">          
-        </form>
-        -->
+        <button title="Delete all selected viruses" onclick="destroyVirus()">destroy</button>
       </div>
-      <div class="column right">
-        <label>Console</label><br>
-        <textarea id="console" readonly></textarea>
+        
+      <div>
+        <label>Host</label>
+
+        <button title="Inject all selected viruses into the host" onclick="injectVirus()">inject</button>   
+
+        <button title="Get virus from a blood sample" onclick="extract()">extract</button>
+
+        <button title="Clear the host's symptom history" onclick="cure()">cure</button>
       </div>
-    </div>
 
-    
-    
-    
-    <!--
-    <h1></h1>
-		<p></p>
-		<footer></footer>
+      <div>
+        <label>Data</label>
+        <button title="Save inventory data" onclick="saveData()">save</button>
 
-    <script src="mod-support.js"></script>
-    <script src="sketch.js"></script>
-    --> 
+        <input title="Load inventory data" type="file" id="load"> 
+      </div>
+
+      <br>
+      <div class="row">
+        <div class="column left"> 
+          <label>Inventory</label><br> 
+          <select id="inventory" multiple>
+          </select>
+        </div>
+        <div class="column right">
+          <label>Console</label><br>
+          <textarea id="console" readonly></textarea>
+        </div>
+      </div>
+    </div>    
+    
+    <script src="scripts/mod-support.js"></script>
     <script src="scripts/console-embed.js"></script>  
     <script src="scripts/declarations.js"></script>  
-    <script src="scripts/traits.js"></script> 
+    <!-- <script src="scripts/traits.js"></script>  -->
     <script src="scripts/classes.js"></script>
     <script src="scripts/functions.js"></script>
-    <script src="scripts/data.js"></script>
     <script src="scripts/main.js"></script>
+    <script src="scripts/sketch.js"></script>
   </body>
 </html>
