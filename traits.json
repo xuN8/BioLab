@@ -1,18 +1,22 @@
 {
+  // Colors the host red
 	"red": {
-		"color": [255, 0, 0]
+		"color": [255, 0, 0]  // Red: 255, Green: 0, Blue: 0
 	},
 
+  // Colors the host cyan
 	"cyan": {
 		"color": [0, 255, 255]
 	},
 
+  // Moves the host to the right by 0.5 pixels each frame
 	"east": {
 		"dx": 0.5
 	},
 
+  // Moves the host left by 0.5 pixels and down by 0.5 pixels each frame
 	"southWest": {
 		"dx": -0.5,
-		"dy": 0.5
+		"dy": 0.5   // The y-axis is inverted so this makes it go down
 	}
 }
