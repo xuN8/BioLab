@@ -1,4 +1,5 @@
 function setup() {
+  console.log("Set up canvas");
   createCanvas(300, 300);
 }
 
